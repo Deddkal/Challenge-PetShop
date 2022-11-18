@@ -18,7 +18,63 @@ header{
 .navbar-collapse{
     flex-grow: 0;
     font-family: 'Roboto', sans-serif!important;
+    
 
+}
+
+.conteiner_card{
+    width: 18rem;   
+}
+
+.card-title{
+    height: 60px;
+}
+.btn_compra{
+    width: 3rem;
+}
+.conteiner_card>img{
+    /* width: 90%; */
+    height: 250px;
+}
+
+.conteiner_descripcion{
+    height: 150px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    ;  /* Ocultar scroll */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(59, 57, 57);
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+.colorstock{
+    color: red;
+    font-weight: bold;
+}
+
+.conteiner_btn img{
+    width: 1rem;
+}
+
+#cantidad{
+    max-width: 5rem;
 }
 
 
