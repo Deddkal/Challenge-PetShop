@@ -29,3 +29,22 @@ main{
 .archivo{
     padding-top: 10vh;
 }
+
+/* desde aca estilo de footer */
+.carousel-inner{
+    max-width: 100px;
+}
+footer{
+    min-height: 25vh;
+    background-color: aliceblue;
+}
+footer .ayuda{
+    font-size: 8px;
+}
+footer .ayuda a{
+    text-decoration : none;
+}
+footer .ayuda a:hover{
+    color : black;
+    font-size: 7px;
+}
