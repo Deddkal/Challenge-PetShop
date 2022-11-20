@@ -4,121 +4,149 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet-Shop</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="app">
-        <header>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">LOGO1</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse fs-3 fw-bold " id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Sobre Nosotros</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Nuestros productos
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Farmacia</a></li>
-                          <li><a class="dropdown-item" href="#">Tienda</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-        </header>
-        <main class="my-5">
-            <div class="d-flex justify-content-around align-items-center flex-wrap gap-4 my-4">
-                <div class="card conteiner_card p-2 gap-2" v-for="elemento of productoJuguetes">
-                    <img :src="elemento.imagen" class="card-img-top" :alt="elemento.nombre">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">{{elemento.nombre}} </h5>
-                        <p class="conteiner_descripcion">{{elemento.descripcion}} </p>
-                        <div class="productos_info d-flex justify-content-around">
-                            <p class="card-text">${{elemento.precio}} </p>
-                            <div v-if="elemento.stock <= 5">
-                                <p class="card-text colorstock" >Stock: {{elemento.stock}} </p>
-                            </div>
-                            <div v-else-if="elemento.stock > 5">
-                                <p class="card-text">Stock: {{elemento.stock}} </p>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-around flex-wrap gap-2 p-2">
-                            <button type="button" @click="agregarProductoCarro" :id="'agregar'+elemento._id" class="btn btn-primary">Agregar al carro</button>
-                            <!-- @click="agregarProductoCarro" -->
-                            <div class="d-flex justify-content-around gap-3 conteiner_btn">
-                                <button type="button" @click="sumarProductoJuguete" :id="'sumar'+elemento._id" class="btn btn_compra btn-success fw-bold fs-3"><!-- <img src="./img/plus-solid.svg" alt=""> -->+</button>
-                                <button type="button" @click="restarProductoJuguete" :id="'restar'+elemento._id" class="btn btn_compra btn-danger fw-bold fs-3">-</button>
-                                <input type="number" class="text-end" name="cantidad" :value="elemento.cantidad" id="cantidad" disabled>
-                            </div>        
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <header>
+      <nav class="nav">
+        <a href="#" class="logo"><img src="./petshopbatman.jpg" alt="LOGO"></a>
 
-                <h2 class="text-center text-bg-danger my-4 "> Farmacia</h2>
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
 
-            <div class="d-flex justify-content-around align-items-center flex-wrap gap-4 my-5">
-                <div class="card conteiner_card p-2 gap-2" v-for="elemento of productoFarmacia">
-                    <img :src="elemento.imagen" class="card-img-top" :alt="elemento.nombre">
-                    <div class="card-body d-flex flex-column gap-1 justify-content-around">
-                        <h5 class="card-title fw-bold">{{elemento.nombre}} </h5>
-                        <p class="conteiner_descripcion">{{elemento.descripcion}} </p>
-                        <div class="productos_info d-flex justify-content-around">
-                            <p class="card-text">${{elemento.precio}} </p>
-                            <div v-if="elemento.stock <= 5">
-                                <p class="card-text colorstock" >Stock: {{elemento.stock}} </p>
-                            </div>
-                            <div v-else-if="elemento.stock > 5">
-                                <p class="card-text">Stock: {{elemento.stock}} </p>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-around flex-wrap gap-2 p-2">
-                            <button type="button" @click="agregarProductoCarro" :id="'agregar'+elemento._id" class="btn btn-primary">Agregar al carro</button>
-                            <div class="d-flex justify-content-around gap-3 conteiner_btn">
-                                <button type="button" @click="sumarProducto" :id="'sumar'+elemento._id" class="btn btn_compra btn-success fw-bold fs-3">+</button>
-                                <button type="button" @click="restarProducto" :id="'restar'+elemento._id" class="btn btn_compra btn-danger fw-bold fs-3">-</button>
-                                <input type="number" class="text-end" name="cantidad" :value="elemento.cantidad" id="cantidad" disabled>
-                            </div>        
-                            
-                        </div>
-                    </div>
-                </div>
+        <div class="nav__link hide">
+          <a href="#">Sobre Nosotros</a>
+          <a href="#">Farmacia</a>
+          <a href="#">Juguetes</a>
+          <a href="#">Contactanos</a>
+        </div>
+      </nav>
+
+    </header>
+
+    <main>
+      <section id="container-slider">	
+        <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
+        <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
+        <ul class="listslider">
+          <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
+          <li><a itlist="itList_1" href="#"></a></li>
+          <li><a itlist="itList_2" href="#"></a></li>
+        </ul>
+        <ul id="slider">
+          <li style="background-image: url('./Imagenes/imagen1.jpg'); z-index:0; opacity: 1;">
+            <div class="content_slider" >
+              <div>
+                <h2>Elige Lo mejor para tus animales</h2>
+          <p>Ponte en contacto con Nosotros y vive la mejor experiencia junto a tu mascota Eligiendonos</p>
+          <a href="#" class="btnSlider">Ver más</a>
+        </div>
             </div>
-        </main>
-        <footer>
-            <ul class="nav nav_footer">
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><img src="./img/facebook.png" alt="Facebook"></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><img src="./img/instagram.png" alt="Instagram"></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><img src="./img/whatsapp.png" alt="whatsapp"></a>
-                </li>
-              </ul>
-        </footer> 
+          </li>
+          <li style="background-image: url('./Imagenes/imagen2.jpg'); ">
+            <div class="content_slider" >
+              <div>
+                <h2>Lo Mejor Para Entretener</h2>
+          <p>Los mejores juguetes para entretener de calidad.</p>
+          <a href="#" class="btnSlider">Ver más</a>
+        </div>
+            </div>
+          </li>
+          <li style="background-image: url('./Imagenes/Imagen3.jpg'); ">
+            <div class="content_slider" >
+              <div>
+                <h2>Los Mejores Productos</h2>
+          <p>Los Mejores Productos para tu mascotas</p>
+          <a href="#" class="btnSlider">Ver más</a>
+        </div>
+            </div>
+          </li>
+       </ul>
+     </section>
+
+
+     <div class="conteiner-nosotros">
+
+      <div class="about-us">
+
+      <div class="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos una empresa familiar creada para ofrecer lo mejor para nuestras mascotas
+          Nació por el amor que tenemos por nuestros Bucky's, y decidimos crear una empresa que ayude a todos a encontrar buenos productos a precios razonables, ayudar a otros a definir que es lo mejor para su mascota dentro de sus posibilidades.
+        </p>
+      </div>
+
+        <div class="objetivo">
+          <h2>Nuestro Objetivo</h2>
+          <p>Nuestro principal objetivo es otorgar productos de calidad aprobada por nosotros, esto quiere decir que No vendemos alimentos o productos que nosotros no usaríamos en nuestras propias mascotas.
+            Compartimos nuestro amor hacia las mascotas, por lo que les brindamos la mejor calidad de atención y el asesoramiento necesario para su cuidado y protección.
+            </p>
+      
+        </div>
+        <div class="producto">
+          <h2>Nuestros productos</h2>
+          <p> Ofrecemos la más amplia variedad en productos alimenticios, accesorios, farmacia, servicios experimentados (veterinaria, peluquería), mascotas para adopción. Contamos con gran variedad de alimentos balanceados, y de a poco estamos sumando más y más productos!
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="contacto">
+
+        <div class="direccion">
+          <h3>¡Te esperamos en nuestro local!</h3>
+        <p class="titulo-direccion">Av.Gral.Las Heras 1647</p>
+        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.456384953752!2d-58.392378584948176!3d-34.5926192804624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc5d71cb99%3A0x5347411abb7c5b0c!2sGral.%20Las%20Heras%201647%2C%20C1018AAA%20CABA!5e0!3m2!1ses-419!2sar!4v1668892485101!5m2!1ses-419!2sar"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.456384953752!2d-58.392378584948176!3d-34.5926192804624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc5d71cb99%3A0x5347411abb7c5b0c!2sGral.%20Las%20Heras%201647%2C%20C1018AAA%20CABA!5e0!3m2!1ses-419!2sar!4v1668892485101!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></a>
+
+        </div>
+
+        <!-- <div class="redes">
+          <a id="whatsapp" href="tel:+1135698741">whatsapp: 11-3569-8741</a>
+        <a id="mail" href="mailto:BatmanPetShop@gmail.com">BatmanPetShop@gmail.com</a>
+        </div>
+      </div> -->
+
+     </div>
+
+
+
+
+     <!-- <div class="container">
+      <div class="content">
+        
+      </div>
+
+      <div class="conteiner-contact">
+        
+        <div class="ubicacion">
+          <h3>¡Te esperamos en nuestro local!</h3>
+          <p>Av.Gral.Las Heras 1647</p>
+          <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.456384953752!2d-58.392378584948176!3d-34.5926192804624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc5d71cb99%3A0x5347411abb7c5b0c!2sGral.%20Las%20Heras%201647%2C%20C1018AAA%20CABA!5e0!3m2!1ses-419!2sar!4v1668892485101!5m2!1ses-419!2sar"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.456384953752!2d-58.392378584948176!3d-34.5926192804624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc5d71cb99%3A0x5347411abb7c5b0c!2sGral.%20Las%20Heras%201647%2C%20C1018AAA%20CABA!5e0!3m2!1ses-419!2sar!4v1668892485101!5m2!1ses-419!2sar" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></a>
+      </div>
+
+        <div class="contacto">
+        <a id="whapp" href="tel:+1135698741">Whapp:11-3569-8741</a>
+        <a id="mail" href="mailto:BatmanPetShop@gmail.com">BatmanPetShop@gmail.com</a>
+        </div>
+        
+      </div> -->
+      <div class="waves">
+        <div class="wave circulo a"></div>
+        <div class="wave circulo b"></div>
+        <div class="wave circulo c"></div>
+      </div>
     </div>
+    </main>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./main.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script defer src="./Js/functions.js"></script>
 </body>
 </html>
