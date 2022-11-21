@@ -2,22 +2,22 @@ body{
     font-family: 'Roboto', sans-serif!important;
 }
 
-main{
-    background: url('./img/patron-animales-dibujados-mano_23-2147537189.webp');
-    min-height: 160vh;
+body{
+    background: url('./img/job562-nunoon-10.jpg');
+    min-height: 70vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-header{
+/* header{
     background-color: #2b275f80;
-}
+} */
 
 .navbar-collapse{
     flex-grow: 0;
-    font-family: 'Roboto', sans-serif!important;
+    
     
 
 }
@@ -27,13 +27,13 @@ header{
 }
 
 .card-title{
-    height: 60px;
+    height: 60px!important;
 }
 .btn_compra{
     width: 3rem;
 }
 .conteiner_card>img{
-    /* width: 90%; */
+   
     height: 250px;
 }
 
@@ -42,27 +42,7 @@ header{
     overflow-y: scroll;
 }
 
-::-webkit-scrollbar {
-    width: 8px;     /* Tamaño del scroll en vertical */
-    height: 8px;    /* Tamaño del scroll en horizontal */
-    ;  /* Ocultar scroll */
-}
 
-::-webkit-scrollbar-thumb {
-    background: rgb(59, 57, 57);
-    border-radius: 4px;
-}
-
-/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #b3b3b3;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-/* Cambiamos el fondo cuando esté en active */
-::-webkit-scrollbar-thumb:active {
-    background-color: #999999;
-}
 
 .colorstock{
     color: red;
@@ -78,14 +58,17 @@ header{
 }
 
 
-
-.nav_footer{
-    position: fixed;
-    bottom: 0;
-    background-color: #2b275f80;
-    width: 100%;
+.logo_tienda{
+    width: 350px;
+    object-fit: cover;
+}
+.btn_conteiner_compra{
+    width: 80%;
 }
 
-.nav_footer img{
-    width: 3rem;
-}
+/* @media only screen and (max-width : 780px) {
+    .table_scroll_tablet{
+        overflow-y: hidden;
+    }
+    
+} */
