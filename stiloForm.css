@@ -37,6 +37,10 @@
     padding: 0.2rem 0.3rem;
 }
 
+.table_scroll_tablet{
+    overflow-x: scroll;
+}
+
 .cart_font svg{
     width: 1em;
 }
