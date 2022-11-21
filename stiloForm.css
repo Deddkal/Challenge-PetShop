@@ -39,14 +39,14 @@ footer{
     background-color: aliceblue;
 }
 footer .ayuda{
-    font-size: 8px;
+    font-size: 13px;
 }
 footer .ayuda a{
     text-decoration : none;
 }
 footer .ayuda a:hover{
     color : black;
-    font-size: 7px;
+    scale: 0.9;
 }
 @media screen and (max-width : 768px) {
     footer{
