@@ -32,7 +32,7 @@ main{
 
 /* desde aca estilo de footer */
 .carousel-inner{
-    max-width: 100px;
+    max-width: 380px;
 }
 footer{
     min-height: 25vh;
@@ -47,4 +47,11 @@ footer .ayuda a{
 footer .ayuda a:hover{
     color : black;
     font-size: 7px;
+}
+@media screen and (max-width : 768px) {
+    footer{
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: wrap;
+    }
 }
